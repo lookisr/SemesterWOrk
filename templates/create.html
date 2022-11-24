@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="/static/img.png" alt="log" class="mainlogo">
+            </a>
+
+            <div class="navbar-wrap">
+                <ul class="navbar-menu">
+                <li><a href="#" class="prod">
+                    <img src="/static/products.png" class="products_ic" alt="prod_ic">
+                </a></li>
+                <li><a href="#" class="search">
+                    <img src="/static/search.svg" alt="search_ic">
+                </a></li>
+                <li><a href="#" class="cart">
+                    <img src="/static/cart.svg" alt="cart_ic">
+                </a></li>
+                <li><a href="{{url_for('signup')}}" class="profile">
+                    <img src="/static/profile.svg" alt="profile_ic">
+                </a></li>
+            </ul>
+            </div>
+
+
+        </div>
+    </nav>
+</body>
+</html>

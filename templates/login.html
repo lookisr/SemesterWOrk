@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block title %}
+Вход
+{% endblock %}
+
+{% block body %}
+<div class="log_page">
+<form method="POST" action="{{ url_for('login') }}">
+    <div class="log_form">
+        <input type="text" name="login" placeholder="Логин" class="log_lform">
+        <div class="pass_log">
+            <input type="password" name="password" placeholder="Пароль" class="log_pform" id="password-input">
+        </div>
+        <a href="{{url_for('products_list')}}"><input type="submit" class="log_sform" value="Login"></a>
+    </div>
+</form>
+</div>
+</body>
+{% endblock %}
+</html>

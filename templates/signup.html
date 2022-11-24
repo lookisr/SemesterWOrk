@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block title%}
+Регистрация
+{% endblock %}
+
+{% block body%}
+<form method="POST" action="{{ url_for('signup') }}">
+    <div class="log_form">
+        <input type="text" name="login" placeholder="Логин" class="log_lform">
+        <label for="login"><b>Логин</b></label>
+        <div class="pass_log">
+            <div class="password1">
+                <input id="password-input1" type="password" name="password1" placeholder="Введите свой пароль">
+                <label for="password1"><b>Пароль</b></label>
+            </div>
+            <div class="password2">
+                <input id="password-input2" type="password" name="password2" placeholder="Подтвердите свой пароль">
+                <label for="password2"><b>Подтвердите пароль</b></label>
+            </div>
+            <div class="phone">
+                <input type="text" name="phone" placeholder="Введите свой номер">
+                <label for="phone"><b>Телефон</b></label>
+            </div>
+        </div>
+        <input type="submit" value="signup">
+    </div>
+</form>
+<div>
+    <a href="{{ url_for('login') }}">
+        <button class="btn-already">У меня уже есть аккаунт</button>
+    </a>
+</div>
+</body>
+</html>
+{% endblock %}

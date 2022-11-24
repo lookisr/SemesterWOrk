@@ -1,0 +1,25 @@
+{% block title %}
+Корзина
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <a href="{{ url_for ('products_list') }}" class="logo">
+            <img src="/static/img.png" alt="log" class="logo">
+        </a>
+    </div>
+
+    <div class="prod_list">
+        {% for product in products %}
+            <div class="card">
+                <img class="card-img" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <h5 class="card-text">{{ product.price }}</h5>
+                    <a href="{{ url_for('cart', p_id = product['product_id']) }}" class="cart-btn">cart</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+{% endblock %}
