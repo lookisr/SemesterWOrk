@@ -23,6 +23,7 @@ CREATE TABLE profiles (
 
 CREATE TABLE products (
     product_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    u_id INTEGER REFERENCES users(id),
     name varchar(100) NOT NULL,
     product_image varchar(20),
     price INTEGER NOT NULL,
@@ -31,13 +32,13 @@ CREATE TABLE products (
 CREATE TABLE product_parameters(
     p_id REFERENCES products(product_id),
     radius INTEGER NOT NULL,
-    width REAL NOT NULL,
     stud INTEGER NOT NULL, /* stud - number of fasteners that hold on the wheels */
-    pcd INTEGER NOT NULL, /* pcd - pitch circle diameter */
+    pcd varchar(20) NOT NULL, /* pcd - pitch circle diameter */
     maker varchar(30) NOT NULL,
     type varchar(20) NOT NULL
 );
 CREATE TABLE cart(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id REFERENCES users(id),
     pic_id REFERENCES products(product_id) /* pic - product in cart */
 );

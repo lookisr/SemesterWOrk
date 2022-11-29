@@ -190,3 +190,100 @@ html {
 	flex-direction: column;
 	gap: 30px;
 }
+.imgcart {
+	height: 30px;
+	width: 30px;
+}
+
+.cartcards_list {
+	margin-top: 30px;
+	margin-left: 3.8%;
+	gap: 20px;
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+}
+.logoutbtn {
+	width: 50px;
+ 	text-decoration: wavy;
+	background-color: lavender;
+	color: black;
+	border-radius: 5px;
+}
+.remove{
+	height: 30px;
+	width: 30px;
+}
+
+.createbtn{
+	width: 100px;
+	text-decoration: wavy;
+	background-color: lavender;
+	color: black;
+	border-radius: 5px;
+}
+.menucreate{
+	display: flex;
+	gap: 20px;
+	flex-direction: row;
+	margin-left: 4%;
+	margin-top: 4%;
+}
+.log_form{
+	width: 25%;
+	margin-left: 70px;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.alreadyhave{
+	margin-left: 70px;
+	margin-top: 5px;
+}
+.info-btns{
+	display: flex;
+	flex-direction: row;
+	height: 20px;
+}
+img.gear{
+	height: 30px;
+	width: 30px;
+}
+
+.alertnotyourproduct{
+	display: flex;
+	margin-left: 45%;
+	margin-top: 50px;
+	background-color: deepskyblue;
+	width: 120px;
+	border-radius: 5px;
+	color: black;
+}
+
+.deletemenu{
+	display: flex;
+	width: 150px;
+	margin-left: 5%;
+	margin-top: 5%;
+	background-color: lightgray;
+	border-radius: 5px;
+}
+.text-in-delete{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	margin-left: 10px;
+}
+.menuedit{
+	display: flex;
+	gap: 20px;
+	flex-direction: row;
+	margin-left: 4%;
+	margin-top: 4%;
+}
+img.removebtn{
+	width: 30px;
+	height: 30px;
+	margin-left: 100px;
+}

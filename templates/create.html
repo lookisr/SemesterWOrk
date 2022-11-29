@@ -11,29 +11,125 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">
+            <a href="{{url_for('products_list')}}" class="logo">
                 <img src="/static/img.png" alt="log" class="mainlogo">
             </a>
 
             <div class="navbar-wrap">
                 <ul class="navbar-menu">
-                <li><a href="#" class="prod">
+                <li><a href="{{url_for('products_list')}}" class="prod">
                     <img src="/static/products.png" class="products_ic" alt="prod_ic">
                 </a></li>
                 <li><a href="#" class="search">
                     <img src="/static/search.svg" alt="search_ic">
                 </a></li>
-                <li><a href="#" class="cart">
+                <li><a href="{{url_for('cart')}}" class="cart">
                     <img src="/static/cart.svg" alt="cart_ic">
                 </a></li>
-                <li><a href="{{url_for('signup')}}" class="profile">
-                    <img src="/static/profile.svg" alt="profile_ic">
-                </a></li>
+                <li><div class="profilepref">
+                {% if session.get('name') == None %}
+                <a href="{{ url_for ('signup') }}">
+                    <img src="/static/login.svg" class="profile" alt="profile1">
+                </a>
+                {% endif %}
+                {% if session['name']%}
+                <a href="{{ url_for ('profile') }}">
+                    <img src="/static/profile.svg" class="profile" alt="profile">
+                </a>
+                <label for="name" class="username"><b>{{ session['name'] }}</b></label>
+                {% else %}
+                <label for="name" class="notauth">Вы еще не вошли</label>
+                {% endif %}
+            </div></li>
             </ul>
             </div>
 
 
         </div>
     </nav>
+    <div class="createmenu">
+    <form name="data" class="data" method="POST" enctype="multipart/form-data" onsubmit="return validate()" action="">
+        <div class="menucreate">
+            <input type="text" name="name" placeholder="Введите название">
+            <input type="text" name="price" placeholder="Введите цену">
+            <input type="text" name="description" placeholder="Опишите товар">
+
+            <p><select name="radius">
+                <option value="" disabled selected>Радиус диска</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+            </select></p>
+            <p><select name="stud">
+                <option value="" disabled selected>Количество отверстий</option>
+                <option value="0">0</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+            </select></p>
+            <p><select name="pcd">
+                <option value="" disabled selected>Диаметр расположения отверстий</option>
+                <option value="114.3">114.3</option>
+                <option value="98">98</option>
+                <option value="100">100</option>
+                <option value="108">108</option>
+                <option value="110">110</option>
+                <option value="112">112</option>
+            </select></p>
+            <p><select name="type">
+                <option value="" disabled selected>Тип диска</option>
+                <option value="Кованные">Кованнные</option>
+                <option value="Литые">Литые</option>
+                <option value="Штампованные">Штампованные</option>
+            </select></p>
+            <form  method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" placeholder="Вставьте фото товара">
+                <input type="submit" value="Загрузить">
+            </form>
+            <input type="text" name="maker" placeholder="Введите производителя">
+            <input type="submit" class="update_sform" value="Создать"/>
+        </div>
+    </form>
+    </div>
+<script>
+  function validate() {
+      let a = document.forms["data"]["name"].value;
+    if (a == "") {
+      alert("Укажите название");
+      return false;
+    }
+    let b = document.forms["data"]["price"].value;
+    if (b == "") {
+      alert("Укажите цену");
+      return false;
+    }
+    let с = document.forms["data"]["description"].value;
+    if (с == "") {
+      alert("Укажите описание");
+      return false;
+    }
+    let d = document.forms["data"]["radius"].value;
+    if (d == "") {
+      alert("Укажите радиус");
+      return false;
+    }
+    let f = document.forms["data"]["stud"].value;
+    if (f == "") {
+      alert("Укажите количество отверстий");
+      return false;
+    }
+    let x = document.forms["data"]["pcd"].value;
+    if (x == "") {
+      alert("Укажите диаметр");
+      return false;
+    }
+    }
+</script>
 </body>
-</html>

@@ -48,26 +48,19 @@
         </div>
     </nav>
 
-    <div class="cards_list">
-        {% for product in products %}
-            <div class="card">
-                <img src=/static/images/{{product.product_image}} class="card-img" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <h5 class="card-text">{{ product.price }}</h5>
-
-                    <div class="info-btns">
-                        <a href="{{ url_for('product_edit', p_id=product.product_id) }}"><img src="/static/gear.svg" class="gear" alt="edit"></a>
-                        <a href="{{ url_for('product_delete', p_id=product.product_id) }}"><img src="/static/trash.svg" class="delete" alt="delete"></a>
-                        <a class="addtocart" href="{{ url_for('addToCart', p_id=product.product_id) }}">
-                            <img class="imgcart" src="/static/addtocart.svg" alt="addcartimg">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+    {% if session['user_id'] == product.u_id and session['name'] %}
+    <form method="POST" action="">
+    <div class="deletemenu">
+        <div class="text-in-delete">
+        <label>Имя товара: {{ product['name'] }}</label>
+        <label>Цена: {{ product['price'] }}</label>
+        <label class="descrip">Описание: {{ product['description'] }}</label>
+        <input type="submit" class="delete_sform" value="Удалить" onclick="return confirm('Вы действительно хотите удалить товар?')">
         </div>
-
-
+    </div>
+    </form>
+{% else %}
+<h1 class="alertnotyourproduct">ЭТО НЕ ВАШ ТОВАР</h1>
+{% endif %}
 </body>
 </html>

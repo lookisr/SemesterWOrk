@@ -56,6 +56,9 @@
         <div class="profile_info">
             <label for="profile_info">Имя пользователя: {{name}}</label>
             <label for="description">Описание профиля: {{description}}</label>
+            <a class="createbtn" href="{{ url_for ('product_create') }}">Create Product</a>
+            <a class="logoutbtn" href="{{ url_for ('logout') }}">Logout</a>
+
         </div>
     </div>
 </body>
